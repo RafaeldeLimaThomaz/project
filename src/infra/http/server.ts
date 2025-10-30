@@ -1,5 +1,6 @@
 import { env } from '@/env'
 import { uploadImageRoute } from '@/infra/http/routes/upload-image'
+import { transformSwaggerSchema } from '@/infra/http/transform-swagger-schema'
 import { fastifyCors } from '@fastify/cors'
 import { fastifyMultipart } from '@fastify/multipart'
 import { fastifySwagger } from '@fastify/swagger'
@@ -42,7 +43,7 @@ server.register(fastifySwagger, {
       version: '1.0.0',
     },
   },
-  transform: jsonSchemaTransform,
+  transform: transformSwaggerSchema,
 })
 
 server.register(fastifySwaggerUi, {
