@@ -49,6 +49,10 @@ export async function getUploads(
           return asc(fields[sortBy])
         }
 
+        if (sortBy && sortDirection === 'desc') {
+          return desc(fields[sortBy])
+        }
+
         return desc(fields.id)
       })
       .offset((page - 1) * pageSize)
