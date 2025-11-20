@@ -45,7 +45,7 @@ export async function getUploads(
         searchQuery ? ilike(schema.uploads.name, `%${searchQuery}%`) : undefined
       )
       .orderBy(fields => {
-        if (sortBy && sortDirection == 'asc') {
+        if (sortBy && sortDirection === 'asc') {
           return asc(fields[sortBy])
         }
 
